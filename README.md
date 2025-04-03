@@ -22,3 +22,14 @@ e.g.
 ```
 
 running `retree -f tree.txt -d /path/to/recreation` you will get the same directory structure.
+
+## Build steps
+
+This project is simple and consists of just one executable, so `cabin` build system
+and package-manager is used
+
+## So, to build
+
+```bash
+cabin build && sudo mv cabin-out/debug/retree /usr/bin/
+```
