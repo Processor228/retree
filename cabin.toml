@@ -1,0 +1,14 @@
+[package]
+name = "retree"
+version = "0.1.0"
+authors = ["Smack"]
+edition = "20"
+
+[dependencies]
+cli11 = {git = "https://github.com/CLIUtils/CLI11.git", tag = "v2.5.0"}
+
+[profile]
+cxxflags = ["-pedantic-errors", "-Wall", "-Wextra", "-Wpedantic", "-fno-rtti"]
+
+[profile.dev]
+comp-db = true
