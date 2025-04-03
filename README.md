@@ -31,5 +31,13 @@ and package-manager is used
 ## So, to build
 
 ```bash
-cabin build && sudo mv cabin-out/debug/retree /usr/bin/
+cabin build && sudo mv cabin-out/debug/retree /usr/local/bin/
+```
+
+## Or, install binary (compiled only for linux)
+
+```bash
+wget -O retree "https://github.com/Processor228/retree/releases/download/v0.1.0/retree"
+chmod +x retree
+sudo mv retree /usr/local/bin/
 ```
