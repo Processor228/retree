@@ -23,18 +23,26 @@ e.g.
 
 running `retree -f tree.txt -d /path/to/recreation` you will get the same directory structure.
 
+## Tests
+
+To run them:
+
+```bash
+bash ./tests/run-tests.sh
+```
+
 ## Build steps
 
 This project is simple and consists of just one executable, so `cabin` build system
 and package-manager is used
 
-## So, to build
+### So, to build
 
 ```bash
-cabin build && sudo mv cabin-out/debug/retree /usr/local/bin/
+cabin build --release && sudo mv cabin-out/release/retree /usr/local/bin/
 ```
 
-## Or, install binary (compiled only for linux)
+### Or, install binary (compiled only for linux)
 
 ```bash
 wget -O retree "https://github.com/Processor228/retree/releases/download/v0.1.0/retree"

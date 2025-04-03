@@ -55,7 +55,7 @@ public:
             cur = m_stream.get();
         }
 
-        if (token == "./") {
+        if (token.starts_with("./")) {
             m_met_self_dir = true;
             return token_info{token, TOKEN_THIS_DIR_ID, ident / 4};
         }
@@ -63,7 +63,7 @@ public:
         if (!m_met_self_dir)
             return token_info{"#", TOKEN_IGNORE_ID, ident / 4};
 
-        if (ident == 0 && token != "./") {
+        if (ident == 0 && !token.starts_with("./")) {
             return std::nullopt;
         }
 

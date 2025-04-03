@@ -1,0 +1,18 @@
+./
+├── cabin-out
+│   ├── debug
+│   │   ├── compile_commands.json
+│   │   ├── Makefile
+│   │   ├── retree
+│   │   └── retree.d
+│   │       └── main.o
+│   └── fff
+├── cabin.toml
+├── ex2.tree
+├── ex.tree
+└── src
+    ├── main.cc
+    ├── parser.hxx
+    └── tree.hxx
+
+4 directories, 11 files

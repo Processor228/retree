@@ -10,10 +10,7 @@ int main(int argc, char** argv) {
     CLI::App app{"Program that reproduces directories structure based on tree cli utility dump."};
 
     std::string filename = "tree.txt";
-    auto file_opt = app.add_option("-f,--file", filename, "Path to the tree output");
-
-    bool flag_from_stdin = false;
-    auto from_stdin_opt = app.add_flag("-i,--from-stdin", flag_from_stdin, "Use stdin to pass tree");
+    app.add_option("-f,--file", filename, "Path to the tree output");
 
     std::string dir_path = "./";
     app.add_option("-d,--dest", dir_path, "Path where to reproduce the tree");
@@ -21,27 +18,23 @@ int main(int argc, char** argv) {
     bool preserve_files = false;
     app.add_flag("-p,--preserve-files", preserve_files, "Preserve files, make them empty");
 
-    file_opt->excludes(from_stdin_opt);
-    from_stdin_opt->excludes(file_opt);
+    bool verbose = false;
+    app.add_flag("-v,--verbose", verbose, "Verbose output");
 
     CLI11_PARSE(app, argc, argv);
 
     retree::tree* tree;
 
     try {
-        if (flag_from_stdin) {
-            tree = retree::parser(std::wcin)
-                          .produce();
-        } else {
-            std::wifstream filestream {filename};
-            tree = retree::parser(filestream)
-                          .produce();
-        }
+        std::wifstream filestream {filename};
+        tree = retree::parser(filestream)
+                        .produce();
     } catch(const std::exception& e) {
         std::cout << "An error occured: " << e.what() << "\n";
     }
 
-    tree->print(0);
+    if (verbose)
+        tree->print(0);
 
     try {
         tree->reproduce(dir_path, preserve_files);
