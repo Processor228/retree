@@ -42,6 +42,12 @@ and package-manager is used
 cabin build --release && sudo mv cabin-out/release/retree /usr/local/bin/
 ```
 
+### Or with cmake
+
+```bash
+cmake -B build/ -DCMAKE_BUILD_TYPE=Release . && cmake --build build/ && sudo mv ./build/retree /usr/local/bin
+```
+
 ### Or, install binary (compiled only for linux)
 
 ```bash
