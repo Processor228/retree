@@ -1,0 +1,900 @@
+./runs
+├── checker.py
+├── go.mod
+├── go.sum
+├── main
+├── main.go
+├── parser
+│   ├── generate.go
+│   ├── generate.sh
+│   ├── StellaLexer.g4
+│   ├── stella_lexer.go
+│   ├── StellaLexer.interp
+│   ├── StellaLexer.tokens
+│   ├── stellaparser_base_listener.go
+│   ├── stellaparser_base_visitor.go
+│   ├── StellaParser.g4
+│   ├── stella_parser.go
+│   ├── StellaParser.interp
+│   ├── stellaparser_listener.go
+│   ├── StellaParser.tokens
+│   └── stellaparser_visitor.go
+├── public-tests
+│   ├── README.md
+│   ├── week-2
+│   │   ├── extra
+│   │   │   ├── contributed
+│   │   │   │   └── 1.stella
+│   │   │   ├── public
+│   │   │   │   ├── 11.stella
+│   │   │   │   ├── 13.stella
+│   │   │   │   ├── 15.stella
+│   │   │   │   ├── 17.stella
+│   │   │   │   ├── 19.stella
+│   │   │   │   ├── 1.stella
+│   │   │   │   ├── 21.stella
+│   │   │   │   ├── 23.stella
+│   │   │   │   ├── 25.stella
+│   │   │   │   ├── 27.stella
+│   │   │   │   ├── 29.stella
+│   │   │   │   ├── 31.stella
+│   │   │   │   ├── 33.stella
+│   │   │   │   ├── 35.stella
+│   │   │   │   ├── 37.stella
+│   │   │   │   ├── 39.stella
+│   │   │   │   ├── 3.stella
+│   │   │   │   ├── 5.stella
+│   │   │   │   ├── 7.stella
+│   │   │   │   └── 9.stella
+│   │   │   └── secret
+│   │   │       ├── 10.stella
+│   │   │       ├── 11.stella
+│   │   │       ├── 12.stella
+│   │   │       ├── 13.stella
+│   │   │       ├── 14.stella
+│   │   │       ├── 15.stella
+│   │   │       ├── 16.stella
+│   │   │       ├── 17.stella
+│   │   │       ├── 18.stella
+│   │   │       ├── 19.stella
+│   │   │       ├── 1.stella
+│   │   │       ├── 20.stella
+│   │   │       ├── 21.stella
+│   │   │       ├── 22.stella
+│   │   │       ├── 23.stella
+│   │   │       ├── 24.stella
+│   │   │       ├── 25.stella
+│   │   │       ├── 26.stella
+│   │   │       ├── 27.stella
+│   │   │       ├── 28.stella
+│   │   │       ├── 29.stella
+│   │   │       ├── 2.stella
+│   │   │       ├── 30.stella
+│   │   │       ├── 31.stella
+│   │   │       ├── 32.stella
+│   │   │       ├── 33.stella
+│   │   │       ├── 34.stella
+│   │   │       ├── 35.stella
+│   │   │       ├── 36.stella
+│   │   │       ├── 37.stella
+│   │   │       ├── 38.stella
+│   │   │       ├── 39.stella
+│   │   │       ├── 3.stella
+│   │   │       ├── 40.stella
+│   │   │       ├── 41.stella
+│   │   │       ├── 42.stella
+│   │   │       ├── 4.stella
+│   │   │       ├── 5.stella
+│   │   │       ├── 6.stella
+│   │   │       ├── 7.stella
+│   │   │       ├── 8.stella
+│   │   │       └── 9.stella
+│   │   └── main
+│   │       ├── contributed
+│   │       │   └── 1.stella
+│   │       ├── public
+│   │       │   ├── 101.stella
+│   │       │   ├── 103.stella
+│   │       │   ├── 105.stella
+│   │       │   ├── 107.stella
+│   │       │   ├── 109.stella
+│   │       │   ├── 111.stella
+│   │       │   ├── 113.stella
+│   │       │   ├── 115.stella
+│   │       │   ├── 117.stella
+│   │       │   ├── 119.stella
+│   │       │   ├── 11.stella
+│   │       │   ├── 121.stella
+│   │       │   ├── 123.stella
+│   │       │   ├── 125.stella
+│   │       │   ├── 127.stella
+│   │       │   ├── 129.stella
+│   │       │   ├── 131.stella
+│   │       │   ├── 133.stella
+│   │       │   ├── 135.stella
+│   │       │   ├── 137.stella
+│   │       │   ├── 139.stella
+│   │       │   ├── 13.stella
+│   │       │   ├── 141.stella
+│   │       │   ├── 143.stella
+│   │       │   ├── 145.stella
+│   │       │   ├── 147.stella
+│   │       │   ├── 149.stella
+│   │       │   ├── 151.stella
+│   │       │   ├── 153.stella
+│   │       │   ├── 15.stella
+│   │       │   ├── 17.stella
+│   │       │   ├── 19.stella
+│   │       │   ├── 1.stella
+│   │       │   ├── 21.stella
+│   │       │   ├── 23.stella
+│   │       │   ├── 25.stella
+│   │       │   ├── 27.stella
+│   │       │   ├── 29.stella
+│   │       │   ├── 31.stella
+│   │       │   ├── 33.stella
+│   │       │   ├── 35.stella
+│   │       │   ├── 37.stella
+│   │       │   ├── 39.stella
+│   │       │   ├── 3.stella
+│   │       │   ├── 41.stella
+│   │       │   ├── 43.stella
+│   │       │   ├── 45.stella
+│   │       │   ├── 47.stella
+│   │       │   ├── 49.stella
+│   │       │   ├── 51.stella
+│   │       │   ├── 53.stella
+│   │       │   ├── 55.stella
+│   │       │   ├── 57.stella
+│   │       │   ├── 59.stella
+│   │       │   ├── 5.stella
+│   │       │   ├── 61.stella
+│   │       │   ├── 63.stella
+│   │       │   ├── 65.stella
+│   │       │   ├── 67.stella
+│   │       │   ├── 69.stella
+│   │       │   ├── 71.stella
+│   │       │   ├── 73.stella
+│   │       │   ├── 75.stella
+│   │       │   ├── 77.stella
+│   │       │   ├── 79.stella
+│   │       │   ├── 7.stella
+│   │       │   ├── 81.stella
+│   │       │   ├── 83.stella
+│   │       │   ├── 85.stella
+│   │       │   ├── 87.stella
+│   │       │   ├── 89.stella
+│   │       │   ├── 91.stella
+│   │       │   ├── 93.stella
+│   │       │   ├── 95.stella
+│   │       │   ├── 97.stella
+│   │       │   ├── 99.stella
+│   │       │   └── 9.stella
+│   │       └── secret
+│   │           ├── 100.stella
+│   │           ├── 101.stella
+│   │           ├── 102.stella
+│   │           ├── 103.stella
+│   │           ├── 104.stella
+│   │           ├── 105.stella
+│   │           ├── 106.stella
+│   │           ├── 107.stella
+│   │           ├── 108.stella
+│   │           ├── 109.stella
+│   │           ├── 10.stella
+│   │           ├── 110.stella
+│   │           ├── 111.stella
+│   │           ├── 112.stella
+│   │           ├── 113.stella
+│   │           ├── 114.stella
+│   │           ├── 115.stella
+│   │           ├── 116.stella
+│   │           ├── 117.stella
+│   │           ├── 118.stella
+│   │           ├── 11.stella
+│   │           ├── 12.stella
+│   │           ├── 13.stella
+│   │           ├── 14.stella
+│   │           ├── 15.stella
+│   │           ├── 16.stella
+│   │           ├── 17.stella
+│   │           ├── 18.stella
+│   │           ├── 19.stella
+│   │           ├── 1.stella
+│   │           ├── 20.stella
+│   │           ├── 21.stella
+│   │           ├── 22.stella
+│   │           ├── 23.stella
+│   │           ├── 24.stella
+│   │           ├── 25.stella
+│   │           ├── 26.stella
+│   │           ├── 27.stella
+│   │           ├── 28.stella
+│   │           ├── 29.stella
+│   │           ├── 2.stella
+│   │           ├── 30.stella
+│   │           ├── 31.stella
+│   │           ├── 32.stella
+│   │           ├── 33.stella
+│   │           ├── 34.stella
+│   │           ├── 35.stella
+│   │           ├── 36.stella
+│   │           ├── 37.stella
+│   │           ├── 38.stella
+│   │           ├── 39.stella
+│   │           ├── 3.stella
+│   │           ├── 40.stella
+│   │           ├── 41.stella
+│   │           ├── 42.stella
+│   │           ├── 43.stella
+│   │           ├── 44.stella
+│   │           ├── 45.stella
+│   │           ├── 46.stella
+│   │           ├── 47.stella
+│   │           ├── 48.stella
+│   │           ├── 49.stella
+│   │           ├── 4.stella
+│   │           ├── 50.stella
+│   │           ├── 51.stella
+│   │           ├── 52.stella
+│   │           ├── 53.stella
+│   │           ├── 54.stella
+│   │           ├── 55.stella
+│   │           ├── 56.stella
+│   │           ├── 57.stella
+│   │           ├── 58.stella
+│   │           ├── 59.stella
+│   │           ├── 5.stella
+│   │           ├── 60.stella
+│   │           ├── 61.stella
+│   │           ├── 62.stella
+│   │           ├── 63.stella
+│   │           ├── 64.stella
+│   │           ├── 65.stella
+│   │           ├── 66.stella
+│   │           ├── 67.stella
+│   │           ├── 68.stella
+│   │           ├── 69.stella
+│   │           ├── 6.stella
+│   │           ├── 70.stella
+│   │           ├── 71.stella
+│   │           ├── 72.stella
+│   │           ├── 73.stella
+│   │           ├── 74.stella
+│   │           ├── 75.stella
+│   │           ├── 76.stella
+│   │           ├── 77.stella
+│   │           ├── 78.stella
+│   │           ├── 79.stella
+│   │           ├── 7.stella
+│   │           ├── 80.stella
+│   │           ├── 81.stella
+│   │           ├── 82.stella
+│   │           ├── 83.stella
+│   │           ├── 84.stella
+│   │           ├── 85.stella
+│   │           ├── 86.stella
+│   │           ├── 87.stella
+│   │           ├── 88.stella
+│   │           ├── 89.stella
+│   │           ├── 8.stella
+│   │           ├── 90.stella
+│   │           ├── 91.stella
+│   │           ├── 92.stella
+│   │           ├── 93.stella
+│   │           ├── 94.stella
+│   │           ├── 95.stella
+│   │           ├── 96.stella
+│   │           ├── 97.stella
+│   │           ├── 98.stella
+│   │           ├── 99.stella
+│   │           └── 9.stella
+│   ├── week-3
+│   │   ├── extra
+│   │   │   └── public
+│   │   │       ├── nested
+│   │   │       │   ├── 10.stella
+│   │   │       │   ├── 11.stella
+│   │   │       │   ├── 12.stella
+│   │   │       │   ├── 13.stella
+│   │   │       │   ├── 14.stella
+│   │   │       │   ├── 1.stella
+│   │   │       │   ├── 2.stella
+│   │   │       │   ├── 3.stella
+│   │   │       │   ├── 4.stella
+│   │   │       │   ├── 5.stella
+│   │   │       │   ├── 6.stella
+│   │   │       │   └── 7.stella
+│   │   │       └── non-nested
+│   │   │           ├── 10.stella
+│   │   │           ├── 11.stella
+│   │   │           ├── 1.stella
+│   │   │           ├── 2.stella
+│   │   │           ├── 3.stella
+│   │   │           ├── 4.stella
+│   │   │           ├── 5.stella
+│   │   │           ├── 6.stella
+│   │   │           ├── 7.stella
+│   │   │           ├── 8.stella
+│   │   │           └── 9.stella
+│   │   └── main
+│   │       ├── public
+│   │       │   ├── 11.stella
+│   │       │   ├── 13.stella
+│   │       │   ├── 15.stella
+│   │       │   ├── 17.stella
+│   │       │   ├── 19.stella
+│   │       │   ├── 1.stella
+│   │       │   ├── 21.stella
+│   │       │   ├── 23.stella
+│   │       │   ├── 25.stella
+│   │       │   ├── 27.stella
+│   │       │   ├── 29.stella
+│   │       │   ├── 31.stella
+│   │       │   ├── 33.stella
+│   │       │   ├── 35.stella
+│   │       │   ├── 37.stella
+│   │       │   ├── 39.stella
+│   │       │   ├── 3.stella
+│   │       │   ├── 41.stella
+│   │       │   ├── 43.stella
+│   │       │   ├── 45.stella
+│   │       │   ├── 47.stella
+│   │       │   ├── 49.stella
+│   │       │   ├── 51.stella
+│   │       │   ├── 53.stella
+│   │       │   ├── 55.stella
+│   │       │   ├── 57.stella
+│   │       │   ├── 59.stella
+│   │       │   ├── 5.stella
+│   │       │   ├── 61.stella
+│   │       │   ├── 63.stella
+│   │       │   ├── 65.stella
+│   │       │   ├── 67.stella
+│   │       │   ├── 69.stella
+│   │       │   ├── 71.stella
+│   │       │   ├── 73.stella
+│   │       │   ├── 7.stella
+│   │       │   └── 9.stella
+│   │       └── secret
+│   │           ├── 10.stella
+│   │           ├── 12.stella
+│   │           ├── 14.stella
+│   │           ├── 16.stella
+│   │           ├── 18.stella
+│   │           ├── 20.stella
+│   │           ├── 22.stella
+│   │           ├── 24.stella
+│   │           ├── 26.stella
+│   │           ├── 28.stella
+│   │           ├── 2.stella
+│   │           ├── 30.stella
+│   │           ├── 32.stella
+│   │           ├── 34.stella
+│   │           ├── 36.stella
+│   │           ├── 38.stella
+│   │           ├── 40.stella
+│   │           ├── 42.stella
+│   │           ├── 44.stella
+│   │           ├── 46.stella
+│   │           ├── 48.stella
+│   │           ├── 4.stella
+│   │           ├── 50.stella
+│   │           ├── 52.stella
+│   │           ├── 54.stella
+│   │           ├── 56.stella
+│   │           ├── 58.stella
+│   │           ├── 60.stella
+│   │           ├── 62.stella
+│   │           ├── 64.stella
+│   │           ├── 66.stella
+│   │           ├── 68.stella
+│   │           ├── 6.stella
+│   │           ├── 70.stella
+│   │           ├── 72.stella
+│   │           ├── 74.stella
+│   │           ├── 76.stella
+│   │           └── 8.stella
+│   ├── week-5
+│   │   ├── extra
+│   │   │   ├── public
+│   │   │   │   ├── 11.stella
+│   │   │   │   ├── 13.stella
+│   │   │   │   ├── 15.stella
+│   │   │   │   ├── 17.stella
+│   │   │   │   ├── 19.stella
+│   │   │   │   ├── 1.stella
+│   │   │   │   ├── 21.stella
+│   │   │   │   ├── 23.stella
+│   │   │   │   ├── 25.stella
+│   │   │   │   ├── 3.stella
+│   │   │   │   ├── 5.stella
+│   │   │   │   ├── 7.stella
+│   │   │   │   └── 9.stella
+│   │   │   └── secret
+│   │   │       ├── 10.stella
+│   │   │       ├── 12.stella
+│   │   │       ├── 14.stella
+│   │   │       ├── 16.stella
+│   │   │       ├── 18.stella
+│   │   │       ├── 20.stella
+│   │   │       ├── 22.stella
+│   │   │       ├── 24.stella
+│   │   │       ├── 2.stella
+│   │   │       ├── 4.stella
+│   │   │       ├── 6.stella
+│   │   │       └── 8.stella
+│   │   └── main
+│   │       ├── public
+│   │       │   ├── 101.stella
+│   │       │   ├── 103.stella
+│   │       │   ├── 105.stella
+│   │       │   ├── 107.stella
+│   │       │   ├── 109.stella
+│   │       │   ├── 111.stella
+│   │       │   ├── 113.stella
+│   │       │   ├── 115.stella
+│   │       │   ├── 117.stella
+│   │       │   ├── 119.stella
+│   │       │   ├── 11.stella
+│   │       │   ├── 121.stella
+│   │       │   ├── 123.stella
+│   │       │   ├── 125.stella
+│   │       │   ├── 127.stella
+│   │       │   ├── 129.stella
+│   │       │   ├── 131.stella
+│   │       │   ├── 133.stella
+│   │       │   ├── 13.stella
+│   │       │   ├── 15.stella
+│   │       │   ├── 17.stella
+│   │       │   ├── 19.stella
+│   │       │   ├── 1.stella
+│   │       │   ├── 21.stella
+│   │       │   ├── 23.stella
+│   │       │   ├── 25.stella
+│   │       │   ├── 27.stella
+│   │       │   ├── 29.stella
+│   │       │   ├── 31.stella
+│   │       │   ├── 33.stella
+│   │       │   ├── 35.stella
+│   │       │   ├── 37.stella
+│   │       │   ├── 39.stella
+│   │       │   ├── 3.stella
+│   │       │   ├── 41.stella
+│   │       │   ├── 43.stella
+│   │       │   ├── 45.stella
+│   │       │   ├── 47.stella
+│   │       │   ├── 49.stella
+│   │       │   ├── 51.stella
+│   │       │   ├── 53.stella
+│   │       │   ├── 55.stella
+│   │       │   ├── 57.stella
+│   │       │   ├── 59.stella
+│   │       │   ├── 5.stella
+│   │       │   ├── 61.stella
+│   │       │   ├── 63.stella
+│   │       │   ├── 65.stella
+│   │       │   ├── 67.stella
+│   │       │   ├── 69.stella
+│   │       │   ├── 71.stella
+│   │       │   ├── 73.stella
+│   │       │   ├── 75.stella
+│   │       │   ├── 77.stella
+│   │       │   ├── 79.stella
+│   │       │   ├── 7.stella
+│   │       │   ├── 81.stella
+│   │       │   ├── 83.stella
+│   │       │   ├── 85.stella
+│   │       │   ├── 87.stella
+│   │       │   ├── 89.stella
+│   │       │   ├── 91.stella
+│   │       │   ├── 93.stella
+│   │       │   ├── 95.stella
+│   │       │   ├── 97.stella
+│   │       │   ├── 99.stella
+│   │       │   └── 9.stella
+│   │       └── secret
+│   │           ├── 100.stella
+│   │           ├── 102.stella
+│   │           ├── 104.stella
+│   │           ├── 106.stella
+│   │           ├── 108.stella
+│   │           ├── 10.stella
+│   │           ├── 110.stella
+│   │           ├── 112.stella
+│   │           ├── 114.stella
+│   │           ├── 116.stella
+│   │           ├── 118.stella
+│   │           ├── 120.stella
+│   │           ├── 122.stella
+│   │           ├── 124.stella
+│   │           ├── 126.stella
+│   │           ├── 128.stella
+│   │           ├── 12.stella
+│   │           ├── 130.stella
+│   │           ├── 132.stella
+│   │           ├── 134.stella
+│   │           ├── 14.stella
+│   │           ├── 16.stella
+│   │           ├── 18.stella
+│   │           ├── 20.stella
+│   │           ├── 22.stella
+│   │           ├── 24.stella
+│   │           ├── 26.stella
+│   │           ├── 28.stella
+│   │           ├── 2.stella
+│   │           ├── 30.stella
+│   │           ├── 32.stella
+│   │           ├── 34.stella
+│   │           ├── 36.stella
+│   │           ├── 38.stella
+│   │           ├── 40.stella
+│   │           ├── 42.stella
+│   │           ├── 44.stella
+│   │           ├── 46.stella
+│   │           ├── 48.stella
+│   │           ├── 4.stella
+│   │           ├── 50.stella
+│   │           ├── 52.stella
+│   │           ├── 54.stella
+│   │           ├── 56.stella
+│   │           ├── 58.stella
+│   │           ├── 60.stella
+│   │           ├── 62.stella
+│   │           ├── 64.stella
+│   │           ├── 66.stella
+│   │           ├── 68.stella
+│   │           ├── 6.stella
+│   │           ├── 70.stella
+│   │           ├── 72.stella
+│   │           ├── 74.stella
+│   │           ├── 76.stella
+│   │           ├── 78.stella
+│   │           ├── 80.stella
+│   │           ├── 82.stella
+│   │           ├── 84.stella
+│   │           ├── 86.stella
+│   │           ├── 88.stella
+│   │           ├── 8.stella
+│   │           ├── 90.stella
+│   │           ├── 92.stella
+│   │           ├── 94.stella
+│   │           ├── 96.stella
+│   │           └── 98.stella
+│   ├── week-6
+│   │   ├── extra
+│   │   │   ├── public
+│   │   │   │   ├── 13.stella
+│   │   │   │   ├── 15.stella
+│   │   │   │   ├── 19.stella
+│   │   │   │   ├── 21.stella
+│   │   │   │   ├── 23.stella
+│   │   │   │   ├── 25.stella
+│   │   │   │   ├── 27.stella
+│   │   │   │   ├── 29.stella
+│   │   │   │   ├── 3.stella
+│   │   │   │   ├── 5.stella
+│   │   │   │   ├── 7.stella
+│   │   │   │   └── 9.stella
+│   │   │   └── secret
+│   │   │       ├── 10.stella
+│   │   │       ├── 14.stella
+│   │   │       ├── 16.stella
+│   │   │       ├── 18.stella
+│   │   │       ├── 20.stella
+│   │   │       ├── 22.stella
+│   │   │       ├── 24.stella
+│   │   │       ├── 26.stella
+│   │   │       ├── 28.stella
+│   │   │       ├── 2.stella
+│   │   │       ├── 32.stella
+│   │   │       ├── 34.stella
+│   │   │       ├── 38.stella
+│   │   │       ├── 40.stella
+│   │   │       ├── 4.stella
+│   │   │       ├── 6.stella
+│   │   │       └── 8.stella
+│   │   ├── main
+│   │   │   ├── public
+│   │   │   │   ├── 101.stella
+│   │   │   │   ├── 103.stella
+│   │   │   │   ├── 105.stella
+│   │   │   │   ├── 107.stella
+│   │   │   │   ├── 109.stella
+│   │   │   │   ├── 111.stella
+│   │   │   │   ├── 113.stella
+│   │   │   │   ├── 115.stella
+│   │   │   │   ├── 117.stella
+│   │   │   │   ├── 119.stella
+│   │   │   │   ├── 11.stella
+│   │   │   │   ├── 121.stella
+│   │   │   │   ├── 123.stella
+│   │   │   │   ├── 125.stella
+│   │   │   │   ├── 127.stella
+│   │   │   │   ├── 129.stella
+│   │   │   │   ├── 135.stella
+│   │   │   │   ├── 139.stella
+│   │   │   │   ├── 13.stella
+│   │   │   │   ├── 141.stella
+│   │   │   │   ├── 143.stella
+│   │   │   │   ├── 145.stella
+│   │   │   │   ├── 15.stella
+│   │   │   │   ├── 161.stella
+│   │   │   │   ├── 163.stella
+│   │   │   │   ├── 165.stella
+│   │   │   │   ├── 167.stella
+│   │   │   │   ├── 169.stella
+│   │   │   │   ├── 171.stella
+│   │   │   │   ├── 173.stella
+│   │   │   │   ├── 17.stella
+│   │   │   │   ├── 1.stella
+│   │   │   │   ├── 21.stella
+│   │   │   │   ├── 23.stella
+│   │   │   │   ├── 25.stella
+│   │   │   │   ├── 27.stella
+│   │   │   │   ├── 31.stella
+│   │   │   │   ├── 33.stella
+│   │   │   │   ├── 35.stella
+│   │   │   │   ├── 37.stella
+│   │   │   │   ├── 39.stella
+│   │   │   │   ├── 3.stella
+│   │   │   │   ├── 41.stella
+│   │   │   │   ├── 43.stella
+│   │   │   │   ├── 45.stella
+│   │   │   │   ├── 47.stella
+│   │   │   │   ├── 49.stella
+│   │   │   │   ├── 53.stella
+│   │   │   │   ├── 55.stella
+│   │   │   │   ├── 57.stella
+│   │   │   │   ├── 59.stella
+│   │   │   │   ├── 5.stella
+│   │   │   │   ├── 61.stella
+│   │   │   │   ├── 65.stella
+│   │   │   │   ├── 67.stella
+│   │   │   │   ├── 71.stella
+│   │   │   │   ├── 73.stella
+│   │   │   │   ├── 75.stella
+│   │   │   │   ├── 77.stella
+│   │   │   │   ├── 7.stella
+│   │   │   │   ├── 81.stella
+│   │   │   │   ├── 93.stella
+│   │   │   │   ├── 95.stella
+│   │   │   │   ├── 97.stella
+│   │   │   │   ├── 99.stella
+│   │   │   │   └── 9.stella
+│   │   │   └── secret
+│   │   │       ├── 100.stella
+│   │   │       ├── 102.stella
+│   │   │       ├── 104.stella
+│   │   │       ├── 106.stella
+│   │   │       ├── 108.stella
+│   │   │       ├── 10.stella
+│   │   │       ├── 110.stella
+│   │   │       ├── 112.stella
+│   │   │       ├── 114.stella
+│   │   │       ├── 118.stella
+│   │   │       ├── 120.stella
+│   │   │       ├── 122.stella
+│   │   │       ├── 124.stella
+│   │   │       ├── 126.stella
+│   │   │       ├── 128.stella
+│   │   │       ├── 12.stella
+│   │   │       ├── 134.stella
+│   │   │       ├── 136.stella
+│   │   │       ├── 138.stella
+│   │   │       ├── 140.stella
+│   │   │       ├── 142.stella
+│   │   │       ├── 144.stella
+│   │   │       ├── 146.stella
+│   │   │       ├── 14.stella
+│   │   │       ├── 158.stella
+│   │   │       ├── 160.stella
+│   │   │       ├── 162.stella
+│   │   │       ├── 164.stella
+│   │   │       ├── 166.stella
+│   │   │       ├── 168.stella
+│   │   │       ├── 170.stella
+│   │   │       ├── 172.stella
+│   │   │       ├── 174.stella
+│   │   │       ├── 18.stella
+│   │   │       ├── 28.stella
+│   │   │       ├── 2.stella
+│   │   │       ├── 30.stella
+│   │   │       ├── 32.stella
+│   │   │       ├── 34.stella
+│   │   │       ├── 36.stella
+│   │   │       ├── 38.stella
+│   │   │       ├── 40.stella
+│   │   │       ├── 44.stella
+│   │   │       ├── 46.stella
+│   │   │       ├── 48.stella
+│   │   │       ├── 4.stella
+│   │   │       ├── 50.stella
+│   │   │       ├── 52.stella
+│   │   │       ├── 54.stella
+│   │   │       ├── 56.stella
+│   │   │       ├── 58.stella
+│   │   │       ├── 60.stella
+│   │   │       ├── 62.stella
+│   │   │       ├── 64.stella
+│   │   │       ├── 66.stella
+│   │   │       ├── 6.stella
+│   │   │       ├── 70.stella
+│   │   │       ├── 72.stella
+│   │   │       ├── 74.stella
+│   │   │       ├── 76.stella
+│   │   │       ├── 78.stella
+│   │   │       ├── 80.stella
+│   │   │       ├── 82.stella
+│   │   │       ├── 92.stella
+│   │   │       ├── 94.stella
+│   │   │       ├── 96.stella
+│   │   │       └── 98.stella
+│   │   └── removed_tests
+│   │       ├── extra
+│   │       │   ├── public
+│   │       │   │   ├── 11.stella
+│   │       │   │   ├── 17.stella
+│   │       │   │   └── 1.stella
+│   │       │   └── secret
+│   │       │       ├── 12.stella
+│   │       │       └── 30.stella
+│   │       └── main
+│   │           ├── public
+│   │           │   ├── 131.stella
+│   │           │   ├── 133.stella
+│   │           │   ├── 137.stella
+│   │           │   ├── 147.stella
+│   │           │   ├── 149.stella
+│   │           │   ├── 151.stella
+│   │           │   ├── 153.stella
+│   │           │   ├── 155.stella
+│   │           │   ├── 157.stella
+│   │           │   ├── 159.stella
+│   │           │   ├── 19.stella
+│   │           │   ├── 29.stella
+│   │           │   ├── 51.stella
+│   │           │   ├── 63.stella
+│   │           │   ├── 69.stella
+│   │           │   ├── 79.stella
+│   │           │   ├── 83.stella
+│   │           │   ├── 85.stella
+│   │           │   ├── 87.stella
+│   │           │   ├── 89.stella
+│   │           │   └── 91.stella
+│   │           └── secret
+│   │               ├── 116.stella
+│   │               ├── 130.stella
+│   │               ├── 132.stella
+│   │               ├── 148.stella
+│   │               ├── 150.stella
+│   │               ├── 152.stella
+│   │               ├── 154.stella
+│   │               ├── 156.stella
+│   │               ├── 16.stella
+│   │               ├── 20.stella
+│   │               ├── 22.stella
+│   │               ├── 24.stella
+│   │               ├── 26.stella
+│   │               ├── 42.stella
+│   │               ├── 68.stella
+│   │               ├── 84.stella
+│   │               ├── 86.stella
+│   │               ├── 88.stella
+│   │               ├── 8.stella
+│   │               └── 90.stella
+│   ├── week-8
+│   │   └── main
+│   │       └── public
+│   │           ├── 101.stella
+│   │           ├── 103.stella
+│   │           ├── 105.stella
+│   │           ├── 107.stella
+│   │           ├── 109.stella
+│   │           ├── 111.stella
+│   │           ├── 113.stella
+│   │           ├── 115.stella
+│   │           ├── 117.stella
+│   │           ├── 119.stella
+│   │           ├── 11.stella
+│   │           ├── 121.stella
+│   │           ├── 123.stella
+│   │           ├── 125.stella
+│   │           ├── 127.stella
+│   │           ├── 129.stella
+│   │           ├── 131.stella
+│   │           ├── 133.stella
+│   │           ├── 135.stella
+│   │           ├── 137.stella
+│   │           ├── 139.stella
+│   │           ├── 13.stella
+│   │           ├── 141.stella
+│   │           ├── 15.stella
+│   │           ├── 17.stella
+│   │           ├── 19.stella
+│   │           ├── 1.stella
+│   │           ├── 21.stella
+│   │           ├── 23.stella
+│   │           ├── 25.stella
+│   │           ├── 27.stella
+│   │           ├── 29.stella
+│   │           ├── 31.stella
+│   │           ├── 33.stella
+│   │           ├── 35.stella
+│   │           ├── 37.stella
+│   │           ├── 39.stella
+│   │           ├── 3.stella
+│   │           ├── 41.stella
+│   │           ├── 43.stella
+│   │           ├── 45.stella
+│   │           ├── 47.stella
+│   │           ├── 49.stella
+│   │           ├── 51.stella
+│   │           ├── 53.stella
+│   │           ├── 55.stella
+│   │           ├── 57.stella
+│   │           ├── 59.stella
+│   │           ├── 5.stella
+│   │           ├── 61.stella
+│   │           ├── 63.stella
+│   │           ├── 65.stella
+│   │           ├── 67.stella
+│   │           ├── 69.stella
+│   │           ├── 71.stella
+│   │           ├── 73.stella
+│   │           ├── 75.stella
+│   │           ├── 77.stella
+│   │           ├── 79.stella
+│   │           ├── 7.stella
+│   │           ├── 81.stella
+│   │           ├── 83.stella
+│   │           ├── 85.stella
+│   │           ├── 87.stella
+│   │           ├── 89.stella
+│   │           ├── 91.stella
+│   │           ├── 93.stella
+│   │           ├── 95.stella
+│   │           ├── 97.stella
+│   │           ├── 99.stella
+│   │           └── 9.stella
+│   └── week-9
+│       └── main
+│           └── public
+│               ├── 11.stella
+│               ├── 13.stella
+│               ├── 15.stella
+│               ├── 17.stella
+│               ├── 19.stella
+│               ├── 1.stella
+│               ├── 21.stella
+│               ├── 23.stella
+│               ├── 25.stella
+│               ├── 3.stella
+│               ├── 5.stella
+│               ├── 69.stella
+│               ├── 7.stella
+│               └── 9.stella
+├── README.md
+├── sorted_tests
+│   ├── ill-typed
+│   │   ├── ERROR_INCORRECT_NUMBER_OF_TYPE_ARGUMENTS_1
+│   │   ├── ERROR_NOT_A_GENERIC_FUNCTION_1
+│   │   ├── ERROR_UNDEFINED_TYPE_VARIABLE_1
+│   │   ├── ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION_1
+│   │   ├── ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION_2
+│   │   ├── ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION_3
+│   │   └── ERROR_UNEXPECTED_TYPE_FOR_PARAMETER_1
+│   └── well-typed
+│       ├── typecheck is over._1
+│       ├── typecheck is over._2
+│       ├── typecheck is over._3
+│       ├── typecheck is over._4
+│       ├── typecheck is over._5
+│       ├── typecheck is over._6
+│       ├── typecheck is over._7
+│       └── typecheck is over._8
+├── stella
+├── stella-implementation-in-go
+└── stella.json
+
+49 directories, 848 files
