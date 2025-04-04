@@ -21,4 +21,6 @@ jobs:
         cmake --build build/
 
     - name: Run tests
-      run: bash tests/run-tests.sh
+      run: |
+        tree ./
+        bash tests/run-tests.sh
