@@ -1,4 +1,7 @@
-./
+# comment
+# comment
+
+hello-dir
 ├── cabin-out
 │   ├── debug
 │   │   ├── compile_commands.json
@@ -16,3 +19,5 @@
     └── tree.hxx
 
 4 directories, 11 files
+
+# comment

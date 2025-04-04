@@ -35,18 +35,32 @@ public:
             if (m_stream.eof() || (cur == '\n' && m_met_self_dir))
                 return std::nullopt;
 
-            if (cur == '.' || std::iswalnum(cur)) {
+            if (cur == '\n' && !m_met_self_dir) {
+                continue;
+            }
+
+            if (cur == '#') {
+                // met a comment. need to skip untill the end of the line
+                while (!(cur == '\n' || m_stream.eof())) {
+                    cur = m_stream.get();
+                }
+                ident = 0;
+                continue;
+            }
+
+            if (is_valid_char_of_name(cur)) {
                 break;
             }
 
             ++ident;
         }
 
+        // here we parse the name
         while (true) {
              if (m_stream.eof())
                 break;
 
-            if (cur == '.' || std::iswalnum(cur) || cur == '-' || cur == '_' || cur == '/') {
+            if (is_valid_char_of_name(cur)) {
                 token += cur;
             } else {
                 break;
@@ -55,15 +69,19 @@ public:
             cur = m_stream.get();
         }
 
-        if (token.starts_with("./")) {
+        if (!m_met_self_dir) {
+            /*
+                Met the name of the dir we are recreating. Start actual parsing mode
+            */
             m_met_self_dir = true;
             return token_info{token, TOKEN_THIS_DIR_ID, ident / 4};
         }
 
-        if (!m_met_self_dir)
-            return token_info{"#", TOKEN_IGNORE_ID, ident / 4};
-
-        if (ident == 0 && !token.starts_with("./")) {
+        if (ident == 0 && m_met_self_dir) {
+            /*
+                We are finished if threre is no identations anymore
+                All whats left next is treated as comment.
+            */
             return std::nullopt;
         }
 
@@ -78,6 +96,11 @@ public:
     }
 
 private:
+
+    bool is_valid_char_of_name(wchar_t cur) {
+        return cur == '.' || std::iswalnum(cur) || cur == '-' || cur == '_' || cur == '/';
+    }
+
     std::wistream& m_stream;
     bool m_met_self_dir = false;
 };

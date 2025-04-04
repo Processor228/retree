@@ -27,7 +27,7 @@ private:
             if (!current_item)
                 break;
 
-            if (current_item->id == TOKEN_IGNORE_ID || current_item->id == TOKEN_THIS_DIR_ID)
+            if (current_item->id == TOKEN_THIS_DIR_ID)
                 continue;
 
             auto current_node = new tree(current_item->value);
@@ -45,7 +45,7 @@ private:
         return parent;
     }
 
-    tokenizer m_tokenizer;  // whats being parsed
+    tokenizer m_tokenizer;
 };
 
 }

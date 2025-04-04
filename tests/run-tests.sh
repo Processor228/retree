@@ -25,9 +25,9 @@ test_retree_assert_with_diff() {
 
     # Construct retree command
     if $preserve_files; then
-        retree -f "$test_file" -d "$output_dir" -p
+        retree -f "$test_file" -v -d "$output_dir" -p
     else
-        retree -f "$test_file" -d "$output_dir"
+        retree -f "$test_file" -v -d "$output_dir"
     fi
 
     # Determine expected output
@@ -42,7 +42,7 @@ test_retree_assert_with_diff() {
         echo "✅ Test passed for $test_file"
     else
         echo "❌ Test failed for $test_file"
-        return 1
+        exit 1
     fi
 }
 

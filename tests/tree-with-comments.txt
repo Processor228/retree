@@ -1,17 +1,16 @@
 # This is a comment !
 # it should be ignored.
 
-./runs
+../run
 ├── CMakeLists.txt
 ├── src
-│   ├── CMakelists.txt
+│   ├── CMakelists.txt  # and this comment as well !
 │   └── loop.hpp
 └── tests
-    ├── CMakeLists.txt
+    ├── CMakeLists.txt  # this comment too !!
     ├── test-minimal
-    └── test-minimal.cpp
+    └── test-minimal.cpp  # this is a comment !
 
 2 directories, 6 files
-
 
 # comment
