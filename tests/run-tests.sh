@@ -1,9 +1,9 @@
 #!/bin/env bash
 
-cabin build
+cmake -B build/ -DCMAKE_BUILD_TYPE=Release . && cmake --build build/
 
 retree() {
-    ./cabin-out/debug/retree "$@"
+    ./build/retree "$@"
 }
 
 test_retree_assert_with_diff() {
@@ -50,3 +50,4 @@ test_retree_assert_with_diff() {
 test_retree_assert_with_diff "tests/simple-tree.txt"
 test_retree_assert_with_diff "tests/tree-with-comments.txt" "tests/simple-tree.txt"
 test_retree_assert_with_diff "tests/no-preserve-files-tree.txt" "tests/no-preserve-files.txt" "--no-preserve-files"
+test_retree_assert_with_diff "tests/giant-example.txt"
