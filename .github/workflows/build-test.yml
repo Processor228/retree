@@ -1,10 +1,6 @@
 name: Build and Test
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: [pull_request]
 
 jobs:
   build:
@@ -23,6 +19,8 @@ jobs:
       run: |
         cmake -B build/ -DCMAKE_BUILD_TYPE=Release .
         cmake --build build/
-
+        mkdir runs && ./build/retree -p -f tests/tree-with-comments.txt -d ./runs -v
+        tree ./runs
     - name: Run tests
-      run: bash tests/run-tests.sh
+      run: |
+        bash tests/run-tests.sh

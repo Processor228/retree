@@ -896,5 +896,3 @@
 ├── stella
 ├── stella-implementation-in-go
 └── stella.json
-
-49 directories, 848 files
