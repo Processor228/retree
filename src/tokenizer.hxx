@@ -32,7 +32,7 @@ public:
         // eat everything untill the name
         while (true) {
             cur = m_stream.get();
-            if (m_stream.eof() || (cur == '\n' && m_met_self_dir))
+            if (cur == std::char_traits<char>::eof() || (cur == '\n' && m_met_self_dir))
                 return std::nullopt;
 
             if (cur == '\n' && !m_met_self_dir) {
@@ -41,7 +41,7 @@ public:
 
             if (cur == '#') {
                 // met a comment. need to skip untill the end of the line
-                while (!(cur == '\n' || m_stream.eof())) {
+                while (!(cur == '\n' || cur == std::char_traits<char>::eof())) {
                     cur = m_stream.get();
                 }
                 ident = 0;
@@ -57,7 +57,7 @@ public:
 
         // here we parse the name
         while (true) {
-             if (m_stream.eof())
+             if (cur == std::char_traits<char>::eof())
                 break;
 
             if (is_valid_char_of_name(cur)) {

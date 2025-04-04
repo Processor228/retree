@@ -32,13 +32,13 @@ test_retree_assert_with_diff() {
 
     # Determine expected output
     if [[ -z "$expected_file" ]]; then
-        expected=$(tree -a "$output_dir")
+        expected=$(tree -a --noreport "$output_dir")
     else
         expected=$(cat "$expected_file")
     fi
 
     # Compare actual output with expected
-    if diff <(tree -a "$output_dir") <(echo "$expected"); then
+    if diff <(tree -a --noreport "$output_dir") <(echo "$expected"); then
         echo "✅ Test passed for $test_file"
     else
         echo "❌ Test failed for $test_file"
