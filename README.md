@@ -48,7 +48,7 @@ cabin build --release && sudo mv cabin-out/release/retree /usr/local/bin/
 cmake -B build/ -DCMAKE_BUILD_TYPE=Release . && cmake --build build/ && sudo mv ./build/retree /usr/local/bin
 ```
 
-### Or, install binary (compiled only for linux)
+### Or, install binary (compiled only for linux, glibc >= 2.27, inside that Dockerfile)
 
 ```bash
 wget -O retree "https://github.com/Processor228/retree/releases/download/v0.1.0/retree"
