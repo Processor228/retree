@@ -51,7 +51,7 @@ cmake -B build/ -DCMAKE_BUILD_TYPE=Release . && cmake --build build/ && sudo mv 
 ### Or, install binary (compiled only for linux, glibc >= 2.27, inside that Dockerfile)
 
 ```bash
-wget -O retree "https://github.com/Processor228/retree/releases/download/v0.1.0/retree"
+wget -O retree "https://github.com/Processor228/retree/releases/download/v0.1.1/retree"
 chmod +x retree
 sudo mv retree /usr/local/bin/
 ```
